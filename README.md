@@ -33,7 +33,7 @@ Repositório do projeto da equipe 1 do componente curricular MATE85 - Tópicos e
 > Back-end: <br>
 > Python utilizando o framework Flask
 
->Banco de dados: MongoDB
+>Banco de dados: MongoDB<br>
 >Controle de versão: GitHUB
 
 
