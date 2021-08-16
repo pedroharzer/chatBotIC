@@ -11,8 +11,7 @@ Rodolpho Salvador Santos <br>
 
 # Deploy:
 
->Front-end: Vercel
->Back-end: Heroku
+>Heroku
 
 # Tecnologias:
 
