@@ -1,6 +1,6 @@
-#Chat bot para informações sobre o departamento de computação da UFBA
+Chat bot para informações sobre o departamento de computação da UFBA
 
-#Equipe:
+Equipe:
 
 Pedro Henrique Harzer Santana <br>
 Felipe Rebouças Ferreira Abreu <br>
@@ -9,12 +9,12 @@ Edmario Oliveira de Araujo<br>
 Milo Raziel Santos Rodrigues<br>
 Rodolpho Salvador Santos <br>
 
-#Deploy:
+Deploy:
 
 >Front-end: Vercel
 >Back-end: Heroku
 
-#Tecnologias:
+Tecnologias:
 
 >Front-end: BoostStrap
 >Back-end: Python utilizando o framework Flask
