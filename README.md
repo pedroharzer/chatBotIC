@@ -42,27 +42,24 @@ flask run
 
 ### Desenvolvimento
 
-> Front-end <br>
+#### Front-end
 > BoostStrap
 
-> Back-end: <br>
+#### Back-end: <br>
 > Python utilizando o framework Flask
 
->Banco de dados: MongoDB<br>
+#### Banco de dados: MongoDB<br>
 >Controle de versão: GitHUB
 
 ### Deploy
 
-> Front-end <br>
+#### Front-end <br>
 > Vercel
 
-> Back-end <br>
+#### Back-end <br>
 > Heroku
 
 
 ### Gestão
 
 > Kanban
-
-
-*OBS: No decorrer do projeto, a equipe poderá alterar um ou mais aspectos ou tecnologias que serão utilizadas.*
