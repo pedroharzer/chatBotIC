@@ -16,15 +16,6 @@ Repositório do projeto da equipe 1 do componente curricular MATE85 - Tópicos e
 
 ## TECNOLOGIAS UTILIZADAS
 
-### Deploy
-
-> Front-end <br>
-> Vercel
-
-> Back-end <br>
-> Heroku
-
-
 ### Desenvolvimento
 
 > Front-end <br>
@@ -35,6 +26,14 @@ Repositório do projeto da equipe 1 do componente curricular MATE85 - Tópicos e
 
 >Banco de dados: MongoDB<br>
 >Controle de versão: GitHUB
+
+### Deploy
+
+> Front-end <br>
+> Vercel
+
+> Back-end <br>
+> Heroku
 
 
 ### Gestão
