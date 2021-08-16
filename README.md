@@ -12,11 +12,15 @@ Rodolpho Salvador Santos <br>
 Deploy:
 
 >Front-end: Vercel
+
 >Back-end: Heroku
 
 Tecnologias:
 
 >Front-end: BoostStrap
+
 >Back-end: Python utilizando o framework Flask
+
 >Banco de dados: MongoDB
+
 >Controle de versão: GitHUB
