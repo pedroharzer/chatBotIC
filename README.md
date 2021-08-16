@@ -16,6 +16,9 @@ Rodolpho Salvador Santos <br>
 # Tecnologias:
 
 >Front-end: BoostStrap
+
 >Back-end: Python utilizando o framework Flask
+
 >Banco de dados: MongoDB
+
 >Controle de versão: GitHUB
