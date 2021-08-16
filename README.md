@@ -21,13 +21,11 @@ cd teste-python-backend
 ```
 pip install -r requirements.txt
 ```
-```
 4 - Executar o projeto
 ```
 cd app
 export FLASK_APP=__init__.py
 flask run
-```
 ```
 
 ## EQUIPE:
