@@ -27,7 +27,8 @@ pip install -r requirements.txt
 cd app
 export FLASK_APP=__init__.py
 flask run
-
+```
+```
 
 ## EQUIPE:
 
