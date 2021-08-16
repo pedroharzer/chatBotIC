@@ -2,7 +2,7 @@
 
 
 
-# Chatbot para informações sobre o departamento de computação da UFBA
+# Chatbot para informações sobre o instituto de computação da UFBA
 Repositório do projeto da equipe 1 do componente curricular MATE85 - Tópicos em Sistemas de Informação e Web I (UFBA).
 
 ## EQUIPE:
