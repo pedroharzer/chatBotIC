@@ -15,7 +15,7 @@ git clone https://github.com/pedroharzer/chatBotIC.git
 ```
 2 - Acessar o diretório
 ```
-cd teste-python-backend
+cd chatBotIC
 ```
 3 - Instalar as dependências
 ```
