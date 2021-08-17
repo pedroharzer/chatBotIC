@@ -73,7 +73,9 @@ def getHTML(): #pega o html de cada submenu
                 ))
             )
             html = firefox.page_source
-            htmls.append(getTextFromHTML(html))
+            infos = getTextFromHTML(html)
+            if infos != {}:
+                htmls.append()
 getHTML()
 print(htmls)
 
