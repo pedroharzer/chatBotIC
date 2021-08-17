@@ -11,7 +11,7 @@ Repositório do projeto da equipe 1 do componente curricular MATE85 - Tópicos e
 #### Passos para executar o projeto:
 1 - Clonar o repositório
 ```
-git clone https://felipeabr@bitbucket.org/felipeabr/teste-python-backend.git
+git clone https://github.com/pedroharzer/chatBotIC.git
 ```
 2 - Acessar o diretório
 ```
