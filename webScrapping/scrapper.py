@@ -5,10 +5,15 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
-
+a = True
 firefox = webdriver.Firefox()
 firefox.get('https://computacao.ufba.br/')
 htmls = []
+first_time = True
+
+def getAllMenus():
+    menus = firefox.find_elements_by_xpath("//li[contains(@class, 'expanded dropdown')]")
+    return menus
 
 def cleanHTML(html): #limpar HTML
     cleanText = html.replace("\n", " ")
@@ -32,13 +37,17 @@ def getTextFromHTML(html): #converter o html limpo para um dict separado em topi
         return dict
     
 
-def navegarMenuHover(i,menu_number, class_name, class_name2): #navegar pelos menus, i=index de submenus, menu_number = qual menu acessar, class_name e class_name2: diferentes metódos de selecionar menu
-    try:
+def navegarMenuHover(first_time, i,menu_number, class_name, class_name2): #navegar pelos menus, first_time = var de controle pois as classes dos menus mudam i=index de submenus, menu_number = qual menu acessar, class_name e class_name2: diferentes metódos de selecionar menu
+    if first_time:
         menu = firefox.find_elements_by_xpath(f"//li[contains(@class, '{class_name}')]")
-        selectedMenu = menu[menu_number]
-    except:
+        if menu_number > 0:
+            selectedMenu = menu[menu_number - 1]
+        else: selectedMenu = menu[menu_number]
+        print('try1')
+    else:
         menu = firefox.find_element_by_xpath(f"//li[contains(@class, '{class_name2}')]")
         selectedMenu = menu
+        print('execpetd')
     subMenus = selectedMenu.find_elements_by_xpath(".//*")
     hover = ActionChains(firefox).move_to_element(selectedMenu).click()
     hover.perform()
@@ -47,16 +56,24 @@ def navegarMenuHover(i,menu_number, class_name, class_name2): #navegar pelos men
     li[i].click()
     return li
 def getHTML(): #pega o html de cada submenu
-    li = navegarMenuHover(0,1,'expanded dropdown active', 'expanded active-trail dropdown')
-    step = range(0, len(li), 2)
-    for i in step:
-        navegarMenuHover(i, 1,'expanded dropdown active', 'expanded active-trail dropdown')
-        WebDriverWait(firefox,50).until(
-            EC.element_to_be_clickable((
-                By.CLASS_NAME, 'page-header'
-            ))
-        )
-        html = firefox.page_source
-        htmls.append(getTextFromHTML(html))
+    first_time = True
+    for index,menu in enumerate(getAllMenus()):
+        print(f"index: {index}")
+        first_time = True
+        li = navegarMenuHover(first_time, 0,index,'expanded dropdown', 'expanded active-trail dropdown')
+        step = range(0, len(li), 2)
+        print(len(li))
+        for i in step:
+            print(f"i: {i}")
+            first_time = False
+            navegarMenuHover(first_time, i, index,'expanded dropdown', 'expanded active-trail dropdown')
+            WebDriverWait(firefox,50).until(
+                EC.element_to_be_clickable((
+                    By.CLASS_NAME, 'page-header'
+                ))
+            )
+            html = firefox.page_source
+            htmls.append(getTextFromHTML(html))
 getHTML()
 print(htmls)
+
