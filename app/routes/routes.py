@@ -1,6 +1,6 @@
 from app import app
 from flask import jsonify
-from ..views import users, helper, perguntas
+from ..views import users, helper, perguntas, entrada
 
 #Cadastro do usuário
 @app.route('/user', methods=['POST'])
@@ -25,9 +25,9 @@ def delete_self(current_user):
     return users.delete_user(current_user.id)
 
 #Recebe pergunta de usuário
-#@app.route('/entrada', methods=['POST'])
-#def entrada():
-#    return interacao.entrada()
+@app.route('/entrada', methods=['POST'])
+def post_entrada():
+    return entrada.post_entrada()
 
 #Cadastro de pergunta pelo admin
 @app.route('/pergunta', methods=['POST'])
