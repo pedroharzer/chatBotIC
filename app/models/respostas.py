@@ -3,7 +3,7 @@ from app import db, ma
 
 #Definição da classe / tabela usuário e seus campos
 
-class Perguntas(db.Model):
+class Respostas(db.Model):
     id = db.Column(db.Integer, primary_key = True, autoincrement = True)
     pergunta_id = db.Column(db.Integer, nullable=False)
     resposta = db.Column(db.String(200), nullable=False)
