@@ -18,3 +18,4 @@ def post_entrada():
                     for y in result2:
                         if(y["pergunta_id"]==x["id"]):
                             return jsonify({'resposta':y["resposta"]})
+                        
