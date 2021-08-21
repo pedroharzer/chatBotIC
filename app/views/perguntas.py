@@ -2,10 +2,12 @@ from werkzeug.security import generate_password_hash
 from app import db
 from flask import request, jsonify
 from ..models.perguntas import Perguntas, pergunta_schema, perguntas_schema
+from ..apis.rivescript_to_regex import convert
 
 #Cadastrar pergunta
 def post_pergunta():
     pergunta = request.json['pergunta']
+    pergunta = convert(pergunta)
     objpergunta = Perguntas(pergunta)
     try:
         db.session.add(objpergunta)
