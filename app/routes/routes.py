@@ -1,6 +1,6 @@
 from app import app
 from flask import jsonify
-from ..views import users, helper, perguntas, entrada
+from ..views import users, helper, perguntas, entrada, respostas
 
 #Cadastro do usuário
 @app.route('/user', methods=['POST'])
@@ -36,7 +36,7 @@ def post_pergunta():
 
 @app.route('/resposta', methods=['POST'])
 def post_resposta():
-    return respostas.cadastrar_resposta()
+    return respostas.post_resposta()
  
 #Update resposta
 @app.route('/resposta/update', methods=['POST'])

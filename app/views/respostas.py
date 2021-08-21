@@ -3,7 +3,7 @@ from flask import request, jsonify
 from ..models.respostas import Respostas, resposta_schema, respostas_schema
  
 #cadastrar respostas
-def cadastrar_resposta():
+def post_resposta():
     resposta = request.json['resposta']
     id_pergunta = request.json['pergunta_id']
     obj_resposta = Respostas(id_pergunta, resposta)
