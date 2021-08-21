@@ -34,6 +34,29 @@ def post_entrada():
 def post_pergunta():
     return perguntas.post_pergunta()
 
+@app.route('/resposta', methods=['POST'])
+def post_resposta():
+    return respostas.cadastrar_resposta()
+ 
+#Update resposta
+@app.route('/resposta/update', methods=['POST'])
+def update_resposta():
+    return respostas.update_resposta()
+ 
+#Coletar UMA resposta
+@app.route('/resposta/get', methods=['GET'])
+def get_resposta():
+    return respostas.get_resposta()
+ 
+#Coletar TODAS as respostas
+@app.route('/respostas', methods=['GET'])
+def get_all_resposta():
+    return respostas.get_all_respostas()
+ 
+@app.route('/resposta/delete', methods=['POST'])
+def delete_resposta():
+    return respostas.del_resposta()
+
 '''
 #Realizar jogo da loteria. É necessário fornecer o JSON com os dados. O usuário precisa estar logado (bearer token fornecido)
 @app.route('/lotrealizarjogo', methods=['POST'])
