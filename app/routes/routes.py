@@ -1,5 +1,5 @@
 from app import app
-from flask import jsonify
+from flask import jsonify, render_template
 from ..views import users, helper, perguntas, entrada, respostas
 
 #Cadastro do usuário
@@ -39,7 +39,7 @@ def post_resposta():
     return respostas.post_resposta()
  
 #Update resposta
-@app.route('/resposta/update', methods=['POST'])
+@app.route('/resposta', methods=['PUT'])
 def update_resposta():
     return respostas.update_resposta()
  
@@ -53,9 +53,13 @@ def get_resposta():
 def get_all_resposta():
     return respostas.get_all_respostas()
  
-@app.route('/resposta/delete', methods=['POST'])
+@app.route('/resposta/delete', methods=['DELETE'])
 def delete_resposta():
     return respostas.del_resposta()
+
+@app.route("/")
+def home():
+    return render_template("index.html")
 
 '''
 #Realizar jogo da loteria. É necessário fornecer o JSON com os dados. O usuário precisa estar logado (bearer token fornecido)
