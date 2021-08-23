@@ -30,3 +30,5 @@ alembic == 1.6.5
 
 # app/__init__.py: 2
 flask_marshmallow == 0.14.0
+
+flask-cors

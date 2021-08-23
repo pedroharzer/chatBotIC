@@ -2,6 +2,7 @@ from flask import Flask, jsonify
 from flask_marshmallow import Marshmallow
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from flask_cors import CORS
 import sys
 from sqlalchemy_utils import database_exists, create_database
 sys.path.append(".")
@@ -9,6 +10,7 @@ sys.path.append(".")
 
 
 app = Flask(__name__)
+CORS(app)
 app.config.from_object('config')
 db = SQLAlchemy(app)
 if not database_exists(app.config['SQLALCHEMY_DATABASE_URI']):
