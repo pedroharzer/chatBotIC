@@ -7,11 +7,11 @@ Repositório do projeto da equipe 1 do componente curricular MATE85 - Tópicos e
 
 ### Documentação
 
-Postman:
+* Postman:
 
 https://documenter.getpostman.com/view/13068940/TzzDJaQN
 
-Planilha:
+* Planilha:
 
 https://docs.google.com/spreadsheets/d/1LaCwHzLrI1kefqoY8yzLllXKLEX9HyDq_hXWkqZhySI/edit?usp=sharing
 
