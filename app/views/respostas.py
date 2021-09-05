@@ -5,8 +5,10 @@ from ..models.respostas import Respostas, resposta_schema, respostas_schema
 #cadastrar respostas
 def post_resposta():
     resposta = request.json['resposta']
+    sugestoes = request.json['sugestoes']
     id_pergunta = request.json['pergunta_id']
-    obj_resposta = Respostas(id_pergunta, resposta)
+
+    obj_resposta = Respostas(id_pergunta,resposta,sugestoes)
  
     try:
         db.session.add(obj_resposta)
@@ -15,20 +17,24 @@ def post_resposta():
         return jsonify({'msg' : 'ok', 'data' : result}),201
     except Exception as e:
         print(e)
-        return jsonify({'rrrroo' : 'ok', 'data' : result}),500
+        return jsonify({'message' : 'ok', 'data' : {}}),500
  
 #atualizar respostas
 def update_resposta():
-    pergunta_id = request.json['resposta_id']
+    id = request.json['id']
+    pergunta_id = request.json['pergunta_id']
     resposta = request.json['resposta']
+    sugestoes = request.json['sugestoes']
  
-    obj_resposta = Respostas.query.get(pergunta_id)
+    obj_resposta = Respostas.query.get(id)
  
     if not obj_resposta:
         return jsonify({'message':"Resposta nao existe.",'data':{}}), 404
  
     try:
+        obj_resposta.pergunta_id = pergunta_id
         obj_resposta.resposta = resposta
+        obj_resposta.sugestoes = sugestoes
         db.session.commit()
         result = resposta_schema.dump(obj_resposta)
         return jsonify({'msg' : 'Resposta atualizada', 'data' : result}),201
