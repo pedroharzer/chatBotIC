@@ -71,7 +71,7 @@ Vercel
 Heroku
 
 
-**0estão**<br>
+**Gestão**<br>
 
 Kanban
 
