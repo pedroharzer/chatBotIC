@@ -51,13 +51,15 @@ flask run
 ### Desenvolvimento
 
 > Front-end <br>
-> BoostStrap
+BoostStrap
 
 > Back-end: <br>
-> Python utilizando o framework Flask
+Python utilizando o framework Flask
 
->Banco de dados: MongoDB<br>
->Controle de versão: GitHUB
+>Banco de dados: 
+MongoDB
+>Controle de versão: 
+GitHUB
 
 ### Deploy
 
