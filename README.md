@@ -39,12 +39,14 @@ flask run
 
 ## EQUIPE:
 
-**Pedro Henrique Harzer Santana**<br>
-**Felipe Rebouças Ferreira Abreu**<br>
-**Tauane Pereira Sales**<br>
-**Edmario Oliveira de Araujo**<br>
-**Milo Raziel Santos Rodrigues**<br>
-**Rodolpho Salvador Santos**<br>
+**Backend**<br>
+Felipe Rebouças Ferreira Abreu<br>
+Pedro Henrique Harzer Santana<br>
+Edmario Oliveira de Araujo<br>
+
+
+**Frontend**<br>
+Milo Raziel Santos Rodrigues<br>
 
 ## TECNOLOGIAS UTILIZADAS
 
@@ -71,9 +73,30 @@ Vercel
 Heroku
 
 
-**Gestão**<br>
+**Planejamento**<br>
 
-Kanban
+Integração da API com o banco de dados - Concluído ✅
+<br>
+Diagrama de implantação - Concluído ✅
+<br>
+Diagrama de arquitetura - Concluído ✅
+<br>
+Tratamento de entradas em Regex - Concluído ✅
+<br>
+Sistema de sugestões - Concluído ✅
+<br>
+Cadastro de perguntas e respostas via API - Concluído ✅
+<br>
+Documentação da API - Parcial ➖
+<br>
+CRUD - Parcial ➖
+<br>
+Implementação do novo framework de frontend - Não realizado ❌
+<br>
+Deploy em servidor Heroku - Não realizado ❌
+<br>
+Proteger as rotas em JWT - Não realizado ❌
+
 
 
 *OBS: No decorrer do projeto, a equipe poderá alterar um ou mais aspectos ou tecnologias que serão utilizadas.*
