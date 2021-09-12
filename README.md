@@ -75,17 +75,17 @@ Heroku
 
 **Planejamento**<br>
 
-Integração da API com o banco de dados - Concluído ✅
+Integração da API com o banco de dados - Concluído ✔️
 <br>
-Diagrama de implantação - Concluído ✅
+Diagrama de implantação - Concluído ✔️
 <br>
-Diagrama de arquitetura - Concluído ✅
+Diagrama de arquitetura - Concluído ✔️
 <br>
-Tratamento de entradas em Regex - Concluído ✅
+Tratamento de entradas em Regex - Concluído ✔️
 <br>
-Sistema de sugestões - Concluído ✅
+Sistema de sugestões - Concluído ✔️
 <br>
-Cadastro de perguntas e respostas via API - Concluído ✅
+Cadastro de perguntas e respostas via API - Concluído ✔️
 <br>
 Documentação da API - Parcial ➖
 <br>
