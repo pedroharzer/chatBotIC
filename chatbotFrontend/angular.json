@@ -1,14 +1,17 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "cli": {
-    "analytics": "47a2b5cb-4a0f-4a06-a17d-cbe9485b0a8b"
+    "analytics": "f3e7bd82-c4b2-4ab2-8e85-9c8f2fff644f"
   },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Frontend": {
+    "chatbotFrontend": {
       "projectType": "application",
       "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        },
         "@schematics/angular:application": {
           "strict": true
         }
@@ -20,17 +23,18 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Frontend",
+            "outputPath": "dist/chatbotFrontend",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -71,10 +75,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "Frontend:build:production"
+              "browserTarget": "chatbotFrontend:build:production"
             },
             "development": {
-              "browserTarget": "Frontend:build:development"
+              "browserTarget": "chatbotFrontend:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -82,7 +86,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Frontend:build"
+            "browserTarget": "chatbotFrontend:build"
           }
         },
         "test": {
@@ -92,12 +96,13 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
+            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           }
@@ -105,5 +110,5 @@
       }
     }
   },
-  "defaultProject": "Frontend"
+  "defaultProject": "chatbotFrontend"
 }
