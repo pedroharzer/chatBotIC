@@ -1,0 +1,13 @@
+<div class="container chatContainer">
+    <div class="row" *ngFor="let message of messageArray">
+        <div class="col">
+            <div class="text-wrap text-break message {{message.style}}">
+                {{message.message}}
+            </div>
+        </div>
+    </div>
+    <!-- <span class="message question">pergunta</span>
+    <span class="message answer">resposta</span> -->
+    <!-- <span *ngFor="let message of messageArray" class="message {{message.style}}">{{message.message}} {{message.style}}</span> -->
+</div>
+

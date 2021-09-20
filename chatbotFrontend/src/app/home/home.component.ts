@@ -1,6 +1,6 @@
 import { Component, Injector, OnInit } from '@angular/core';
 
-import { ChatbotService } from '../service/chatbot.service';
+import { ChatComponent } from '../chat/chat.component';
 
 @Component({
   selector: 'app-home',
@@ -9,20 +9,20 @@ import { ChatbotService } from '../service/chatbot.service';
 })
 export class HomeComponent implements OnInit {
 
-  _chatbotService: ChatbotService;
+  inputText: any;
 
-  teste: any;
+  _chatComponent: ChatComponent;
 
-   constructor(injector: Injector) {
-   this._chatbotService = injector.get(ChatbotService);
- }
+  constructor(injector: Injector) {
+    this.inputText = "";
+    this._chatComponent = injector.get(ChatComponent);
+  }
 
- ngOnInit(): void {
-   let me = this;
-   me._chatbotService.postEntrada().subscribe(response => { 
-     me.teste = (response as any).resposta;
-     console.log(me.teste);
-   } );
+  ngOnInit(): void {
+  }
+
+  onEnviar(): void {
+    this._chatComponent.addMessage("testando");
   }
 
 }
