@@ -7,11 +7,11 @@ Repositório do projeto da equipe 1 do componente curricular MATE85 - Tópicos e
 
 ### Documentação
 
-* Diagrama de Arquitetura (Felipe)
+* Diagrama de Arquitetura
 
 https://github.com/pedroharzer/chatBotIC/raw/main/documentos/diagrama%20arquitetura.pdf
 
-* Diagrama de Implantação (Pedro)
+* Diagrama de Implantação
 
 https://github.com/pedroharzer/chatBotIC/raw/main/documentos/Implanta%C3%A7%C3%A3o%20-%20IMG.pdf
 <br>
