@@ -1,4 +1,4 @@
-import { Component, Injector, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Injector, OnInit } from '@angular/core';
 
 import { ChatComponent } from '../chat/chat.component';
 
@@ -13,7 +13,8 @@ export class HomeComponent implements OnInit {
 
   _chatComponent: ChatComponent;
 
-  constructor(injector: Injector) {
+  constructor(injector: Injector,
+              private cdr: ChangeDetectorRef) {
     this.inputText = "";
     this._chatComponent = injector.get(ChatComponent);
   }
@@ -22,7 +23,8 @@ export class HomeComponent implements OnInit {
   }
 
   onEnviar(): void {
-    this._chatComponent.addMessage("testando");
+    this._chatComponent.addMessage("testando", "question");
+    this.cdr.detectChanges();
   }
 
 }

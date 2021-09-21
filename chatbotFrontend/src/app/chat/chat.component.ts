@@ -1,4 +1,4 @@
-import { Component, Injectable, Injector, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Injectable, Injector, OnInit } from '@angular/core';
 
 import { ChatbotService } from '../service/chatbot.service';
 
@@ -17,23 +17,25 @@ export class ChatComponent implements OnInit {
   teste: any;
   messageArray: Array<any>;
 
-  constructor(injector: Injector) {
+  constructor(injector: Injector,
+              private changeDetector: ChangeDetectorRef) {
     this._chatbotService = injector.get(ChatbotService);
-    this.messageArray = [
-      {message: "Bem vindo(a) ao Chatbot do Instituto de Computação UFBA! Em que posso ajudar?", style: "answer"}
-    ];
+    this.messageArray = [{message: "test message 1", style: "answer"}];
   }
 
   ngOnInit(): void {
     let me = this;
+
     me._chatbotService.postEntrada().subscribe(response => { 
       me.teste = (response as any).resposta;
       console.log(me.teste);
     } );
   }
 
-  addMessage(message: string): void {
-    console.log("addMessage: " + message);
+  addMessage(message: string, style: string): void {
+    this.messageArray = [...this.messageArray, {message: message, style: style}];
+    this.changeDetector.detectChanges();
+    console.log(this.messageArray);
   }
 
 }
