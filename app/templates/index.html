@@ -33,7 +33,7 @@
           });
           console.log(jso);
           let xhr = new XMLHttpRequest();
-          let url = "http://127.0.0.1:5000/entrada";
+          let url = "/entrada";
           xhr.open("POST", url, true);
           xhr.setRequestHeader("Content-Type", "application/json");
           xhr.send(jso);
