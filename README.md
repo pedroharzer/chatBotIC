@@ -85,9 +85,9 @@ Heroku
 
 Integração da API com o banco de dados - Concluído ✔️
 <br>
-Diagrama de implantação - Concluído ✔️
+Diagrama de implantação - Concluído ✔️ (Pedro)
 <br>
-Diagrama de arquitetura - Concluído ✔️
+Diagrama de arquitetura - Concluído ✔️ (Felipe)
 <br>
 Tratamento de entradas em Regex - Concluído ✔️
 <br>
@@ -95,13 +95,13 @@ Sistema de sugestões - Concluído ✔️
 <br>
 Cadastro de perguntas e respostas via API - Concluído ✔️
 <br>
-Documentação da API - Parcial ➖
+Documentação da API - Concluído ✔️ (Pedro e Felipe)
 <br>
-CRUD - Parcial ➖
+CRUD - Parcial (falta a interface) ➖ 
 <br>
 Implementação do novo framework de frontend - Não realizado ❌
 <br>
-Deploy em servidor Heroku - Não realizado ❌
+Deploy em servidor Heroku - Concluído ✔️
 <br>
 Proteger as rotas em JWT - Não realizado ❌
 
