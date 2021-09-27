@@ -52,8 +52,6 @@ flask run
 **Backend**<br>
 Felipe Rebouças Ferreira Abreu<br>
 Pedro Henrique Harzer Santana<br>
-Edmario Oliveira de Araujo<br>
-
 
 **Frontend**<br>
 Milo Raziel Santos Rodrigues<br>
