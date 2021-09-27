@@ -19,27 +19,30 @@ def post_pergunta():
         return jsonify({'message':'Erro ao cadastrar pergunta.','data':{}}),500
 
 #Atualizar/editar pergunta
-def update_pergunta(id):
+def update_pergunta():
+    pergunta_id = request.json['pergunta_id']
     pergunta = request.json['pergunta']
     
-    objpergunta = Perguntas.query.get(id)
+    objpergunta = Perguntas.query.get(pergunta_id)
 
     if not objpergunta:
         return jsonify({'message':"Pergunta nao existe.",'data':{}}), 404
 
 
     try:
+        objpergunta.pergunta_id = pergunta_id
         objpergunta.pergunta = pergunta
         db.session.commit()
-        result = pergunta_schema.dump(pergunta)
+        result = pergunta_schema.dump(objpergunta)
         return jsonify({'message':'Pergunta atualizada com sucesso.', 'data': result}),201
     except Exception as e:
         print(e)
         return jsonify({'message':'Erro ao atualizar pergunta.','data':{}}),500
 
 #Coletar dados da pergunta
-def get_pergunta(id):
-    pergunta = Perguntas.query.get(id)
+def get_pergunta():
+    pergunta_id = request.json['pergunta_id']
+    pergunta = Perguntas.query.get(pergunta_id)
     if pergunta:
         result = pergunta_schema.dump(pergunta)
         return jsonify({'message':'succesfully fetched','data':result}), 201
@@ -57,8 +60,9 @@ def get_perguntas():
     return jsonify({'message':"nada encontrado",'data':{}}), 404
 
 #Deletar a pergunta
-def delete_user(id):
-    pergunta = Perguntas.query.get(id)
+def delete_pergunta():
+    pergunta_id = request.json['pergunta_id']
+    pergunta = Perguntas.query.get(pergunta_id)
     if not pergunta:
         return jsonify({'message':"Pergunta nao existe.",'data':{}}),404
     if pergunta:

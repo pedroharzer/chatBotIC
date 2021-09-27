@@ -57,6 +57,22 @@ def get_all_resposta():
 def delete_resposta():
     return respostas.del_resposta()
 
+@app.route('/pergunta/delete', methods=['DELETE'])
+def delete_pergunta():
+    return perguntas.delete_pergunta()
+
+@app.route('/perguntas', methods=['GET'])
+def get_all_perguntas():
+    return perguntas.get_perguntas()
+
+@app.route('/pergunta/get', methods=['GET'])
+def get_pergunta():
+    return perguntas.get_pergunta()
+
+@app.route('/pergunta', methods=['PUT'])
+def update_pergunta():
+    return perguntas.update_pergunta()
+
 @app.route("/")
 def home():
     return render_template("index.html")
