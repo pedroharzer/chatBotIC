@@ -19,7 +19,7 @@ https://github.com/pedroharzer/chatBotIC/raw/main/documentos/implanta%C3%A7%C3%A
 
 * Postman:
 
-https://documenter.getpostman.com/view/13068940/TzzDJaQN
+https://documenter.getpostman.com/view/13068940/UUxxhoeE
 
 * Planilha:
 
