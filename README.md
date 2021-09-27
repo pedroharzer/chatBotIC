@@ -5,6 +5,10 @@
 # Chatbot para informações sobre o instituto de computação da UFBA
 Repositório do projeto da equipe 1 do componente curricular MATE85 - Tópicos em Sistemas de Informação e Web I (UFBA).
 
+Site para testes:
+
+https://flask-chatb0t.herokuapp.com/
+
 ### Documentação
 
 * Diagrama de Arquitetura
