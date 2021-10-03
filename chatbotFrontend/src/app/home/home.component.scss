@@ -1,0 +1,19 @@
+.homeContainer {
+    width: 50vw;
+    margin-left: 3vw;
+    margin-right: 3vw;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+
+.scrollContainer {
+    height: 50vh;
+}
+
+.buttonEnviar {
+    width: 5vw;
+    min-width: 80px;
+}
