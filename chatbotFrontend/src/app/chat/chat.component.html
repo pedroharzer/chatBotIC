@@ -1,0 +1,10 @@
+<div class="container chatContainer">
+    <div class="row" *ngFor="let message of messageArray">
+        <div class="col">
+            <div class="text-wrap text-break message {{message.style}}">
+                {{message.message}}
+            </div>
+        </div>
+    </div>
+</div>
+
