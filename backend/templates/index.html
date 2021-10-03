@@ -42,7 +42,7 @@
               myObj = JSON.parse(this.responseText);
               var sugestoes = "";
               for (var prop in myObj.sugestoes) {
-            sugestoes = "<input id=\"questionButton\" type=\"submit\" value=\""+myObj.sugestoes[prop]+"\">"+sugestoes;
+            sugestoes = "<input id=\"questionButton\" type=\"submit\" value=\""+myObj.sugestoes[prop]+"\">"+"<br>"+sugestoes;
           }
             var botHtml = '<p class="botText"><span>' + myObj.resposta + '</span></p>'+sugestoes;
             $("#chatbox").append(botHtml);
