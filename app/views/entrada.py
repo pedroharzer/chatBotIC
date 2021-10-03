@@ -7,6 +7,13 @@ from ..apis.match_entrada import stringExists
 #Cadastrar pergunta
 def post_entrada():
     entrada = request.json['entrada']
+
+    print("#####################")
+    print(request)
+    print(entrada)
+    print(type(entrada))
+    print("#####################")
+
     entrada = ' ' + entrada if not entrada.startswith(' ') else entrada
     perguntas = Perguntas.query.all()
     if perguntas:

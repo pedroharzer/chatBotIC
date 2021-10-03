@@ -11,12 +11,14 @@ export class ChatbotService {
   constructor(private http: HttpClient) {
   }
 
-  postEntrada(): Observable<Object> {
-      let entrada = {"entrada": "cc"}
-      return this.http.post<Object>("http://localhost:5000/entrada", entrada)
-          .pipe(
-              catchError(this.handleError)
-          );
+  postEntrada(entrada: string): Observable<Object> {
+    //console.log(entrada);
+    let payload = {entrada: entrada}
+    console.log(payload)
+    return this.http.post<Object>("http://localhost:5000/entrada", payload)
+        .pipe(
+            catchError(this.handleError)
+        );
   }
 
   private handleError(error: HttpErrorResponse) {
