@@ -6,9 +6,10 @@ from models.users import Users, user_schema, users_schema
 #Cadastrar usuário
 def post_user():
     username = request.json['username']
+    email = request.json['email']
     password = request.json['password']
     pass_hash = generate_password_hash(password)
-    user = Users(username, pass_hash)
+    user = Users(username, email ,pass_hash)
     try:
         db.session.add(user)
         db.session.commit()

@@ -73,6 +73,14 @@ def get_pergunta():
 def update_pergunta():
     return perguntas.update_pergunta()
 
+@app.route('/cadastropergunta')
+def cadastro_pergunta():
+    return render_template("cadastropergunta.html")
+
+@app.route('/cadastrousuario')
+def cadastro_usuario():
+    return render_template("cadastrousuario.html")
+
 @app.route("/")
 def home():
     return render_template("index.html")

@@ -6,17 +6,19 @@ from app import db, ma
 class Users(db.Model):
     id = db.Column(db.Integer, primary_key = True, autoincrement = True)
     username = db.Column(db.String(20), unique=True, nullable=False)
+    email = db.Column(db.String(20), unique=True, nullable=False)
     password = db.Column(db.String(200), nullable=False)
     created_on = db.Column(db.DateTime, default = datetime.datetime.now())
 
-    def __init__(self,username,password):
+    def __init__(self,username,email,password):
         self.username = username
+        self.email = email
         self.password = password
 
 #Definindo o Schema do Marshmallow para facilitar a utilização de JSON
 class UsersSchema(ma.Schema):
     class Meta:
-        fields = ('id','username','password','created_on')
+        fields = ('id','username','email','password','created_on')
 
 user_schema = UsersSchema()
 users_schema = UsersSchema(many=True)

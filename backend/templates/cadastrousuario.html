@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/static/sign.css">
+        <script>
+          
+            // Function to check Whether both passwords
+            // is same or not.
+
+            function signin() {
+                username = document.querySelector('#username');
+                password = document.querySelector('#password1');
+                email = document.querySelector('#email');
+
+                var jso = JSON.stringify({
+            "username": username.value,
+            "email":email.value,
+            "password": password.value
+          });
+          console.log(jso);
+          let xhr = new XMLHttpRequest();
+          let url = "/user";
+          xhr.open("POST", url, true);
+          xhr.setRequestHeader("Content-Type", "application/json");
+          xhr.send(jso);
+          xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 201) {
+              myObj = JSON.parse(this.responseText);
+              alert ("Cadastro efetuado com sucesso!");
+            }
+          };
+
+            }
+            function checkPassword() {
+                password1 = document.querySelector('#password1');
+                password2 = document.querySelector('#password2');
+                // If password not entered
+                if (password1.value == '')
+                    alert ("Por favor, digite a senha");
+                      
+                // If confirm password not entered
+                else if (password2.value == '')
+                    alert ("Por favor, digite a confirmação de senha");
+                      
+                // If Not same return False.    
+                else if (password1.value != password2.value) {
+                    alert ("\nSenhas não coincidem, por favor tente novamente...")
+                    return false;
+                }
+  
+                // If same return True.
+                else{
+                    return signin();
+                }
+            }
+
+ 
+
+
+
+
+        </script>
+    </head>
+    <body>
+
+        <div class="container register-form">
+            <div class="form">
+                <div class="note">
+                    <p>Cadastro de administrador.</p>
+                </div>
+
+
+                
+                <div class="form-content">
+
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" id="username" name = username size = 25 class="form-control" placeholder="Username *" value=""/>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="email" class="form-control" name = email size = 25 placeholder="E-mail *" value=""/>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type = password id="password1" name = password1 size = 25 class="form-control" placeholder="Digite a senha: * " value="">
+                            </div>
+                            <div class="form-group">
+                                <input type = password id="password2" name = password2 size = 25 class="form-control" placeholder="Confirme a senha: * " value="">
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="checkPassword()" type="submit" class="btnSubmit" value = "Submit">Enviar</button>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    </body>
+</html>                    
