@@ -109,11 +109,13 @@ Documentação da API - Concluído ✔️ (Pedro e Felipe)
 <br>
 CRUD - Parcial (falta a interface) ➖ 
 <br>
-Implementação do novo framework de frontend - Não realizado ❌
+Implementação do novo framework de frontend - Não realizado (em andamento) ❌
 <br>
 Deploy em servidor Heroku - Concluído ✔️
 <br>
-Proteger as rotas em JWT - Não realizado ❌
+Proteger as rotas em JWT - Parcial (implementado para acesso ao cadastro de perguntas, mas pendente para o resto do CRUD) ➖ 
+<br>
+Sistema de cadastro e login - Concluído ✔️ (Felipe)
 
 
 
