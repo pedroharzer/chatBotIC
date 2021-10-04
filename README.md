@@ -60,6 +60,12 @@ Pedro Henrique Harzer Santana<br>
 **Frontend**<br>
 Milo Raziel Santos Rodrigues<br>
 
+**Atividades**<br>
+
+Felipe - Arquitetura do Backend, Frontend provisório
+Pedro - Funções auxiliares, documentação do projeto
+Milo - Frontend definitivo
+
 ## TECNOLOGIAS UTILIZADAS
 
 ### Desenvolvimento
