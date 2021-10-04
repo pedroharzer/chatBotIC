@@ -62,9 +62,9 @@ Milo Raziel Santos Rodrigues<br>
 
 **Atividades**<br>
 
-Felipe - Arquitetura do Backend, Frontend provisório
-Pedro - Funções auxiliares, documentação do projeto
-Milo - Frontend definitivo
+Felipe - Arquitetura do Backend, Frontend provisório<br>
+Pedro - Funções auxiliares, documentação do projeto<br>
+Milo - Frontend definitivo<br>
 
 ## TECNOLOGIAS UTILIZADAS
 
