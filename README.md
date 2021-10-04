@@ -9,7 +9,7 @@ Site para testes:
 
 https://flask-chatb0t.herokuapp.com/
 
-myflaskproject.pythonanywhere.com
+https://myflaskproject.pythonanywhere.com
 
 
 ### Documentação
