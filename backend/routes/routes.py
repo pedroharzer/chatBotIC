@@ -74,45 +74,23 @@ def update_pergunta():
     return perguntas.update_pergunta()
 
 @app.route('/cadastropergunta')
-def cadastro_pergunta():
+@helper.token_required
+def cadastro_pergunta(current_user):
     return render_template("cadastropergunta.html")
 
 @app.route('/cadastrousuario')
 def cadastro_usuario():
     return render_template("cadastrousuario.html")
 
+@app.route('/loginusuario')
+def login_user():
+    return render_template("loginusuario.html")
+
+@app.route('/savetoken', methods=['POST'])
+def savetoken():
+    return helper.savetoken()
+
+
 @app.route("/")
 def home():
     return render_template("index.html")
-
-'''
-#Realizar jogo da loteria. É necessário fornecer o JSON com os dados. O usuário precisa estar logado (bearer token fornecido)
-@app.route('/lotrealizarjogo', methods=['POST'])
-@helper.token_required
-def realizarjogo(current_user):
-    return apostas.post_aposta(current_user.id)
-
-#Consultar o último resultado da Mega Sena. É necessário fornecer o JSON com os dados. O usuário precisa estar logado (bearer token fornecido)
-@app.route('/consultarresultado', methods=['GET'])
-@helper.token_required
-def consultarresultado(current_user):
-    return apostas.resultado_mega()
-
-#Ver quantos números acertou no último jogo válido (que já saiu o resultado). O usuário precisa estar logado (bearer token fornecido)
-@app.route('/consultaracertos', methods=['GET'])
-@helper.token_required
-def consultaracertos(current_user):
-    return apostas.get_acertos_ultimo_jogo(current_user.id)
-
-#Listar jogos passados. O usuário precisa estar logado (bearer token fornecido)
-@app.route('/jogospassados', methods=['GET'])
-@helper.token_required
-def jogospassados(current_user):
-    return apostas.get_jogos(current_user.id)
-
-@app.route('/home', methods=['GET'])
-@helper.token_required
-def root(current_user):
-    return jsonify({'message':f'Bem vindo {current_user.username}'})
-
-    '''
