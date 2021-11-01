@@ -49,8 +49,8 @@ pip install -r requirements.txt
 ```
 4 - Executar o projeto
 ```
-cd app
-export FLASK_APP=__init__.py
+cd backend
+export FLASK_APP=app.py
 flask run
 ```
 
