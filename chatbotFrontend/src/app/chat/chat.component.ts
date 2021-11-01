@@ -23,11 +23,13 @@ export class ChatComponent implements OnInit {
   }
 
   addMessage(message: Message): void {
-    //let newMessage = new Message(message, style);
     this.messageArray = [...this.messageArray, message];
-    //this.messageArray.push({message: message, style: style});
     this.changeDetector.detectChanges();
     console.log(this.messageArray);
+  }
+
+  onAskSuggestion(question: string): void {
+    console.log("askSuggestion " + question);
   }
 
 }

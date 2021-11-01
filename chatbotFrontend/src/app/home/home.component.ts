@@ -39,11 +39,12 @@ export class HomeComponent implements OnInit {
       this.cdr.detectChanges();
 
       me._chatbotService.postEntrada(input).subscribe(response => { 
-        let newMessage = new Message((response as any).resposta, Message.typeAnswer);
+        let newMessage = new Message((response as any).resposta, Message.typeAnswer, (response as any).sugestoes);
+        console.log(newMessage);
         this.chatComponent.addMessage(newMessage);
         this.cdr.detectChanges();
         
-        console.log((response as any).resposta);
+        console.log((response as any).sugestoes);
       } );
     }
   }

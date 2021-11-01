@@ -19,3 +19,9 @@
     @extend .float-start;
     background-color: #bccbe3;
 }
+
+.suggestion {
+    @extend .float-start;
+    background-color: #ced1d6;
+    cursor: pointer;
+}
