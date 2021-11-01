@@ -3,18 +3,25 @@
   <head>
     <link rel="stylesheet" type="text/css" href="/static/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/sign.css">
   </head>
   <body>
-    <h1>Chatbot UFBA</h1>
-    <h3>Instituto de Computação</h3>
+    {% include 'navbar.html' %}
+
+
+    <h1>ICbot</h1>
+
     <div>
       <div id="chatbox">
         <p class="botText"><span>Olá! Quais são as suas dúvidas?</span></p>
-        <input id="questionButton" type="submit" value="Conte-me sobre o curso de cc">
+        <input id="questionButton" class="btn btn-outline-info my-2 my-sm-0" type="submit" value="Conte-me sobre o curso de cc">
       </div>
       <div id="userInput">
         <input id="textInput" type="text" name="msg" placeholder="Mensagem">
-        <input id="buttonInput" type="submit" value="Enviar">
+        <input id="buttonInput" class="btnSubmit" type="submit" value="Enviar">
       </div>
       <script>
         function getBotResponse(text) {
@@ -42,7 +49,7 @@
               myObj = JSON.parse(this.responseText);
               var sugestoes = "";
               for (var prop in myObj.sugestoes) {
-            sugestoes = "<input id=\"questionButton\" type=\"submit\" value=\""+myObj.sugestoes[prop]+"\">"+"<br>"+sugestoes;
+            sugestoes = "<input id=\"questionButton\" class=\"btn btn-outline-info my-2 my-sm-0\" type=\"submit\" value=\""+myObj.sugestoes[prop]+"\">"+"<br>"+sugestoes;
           }
             var botHtml = '<p class="botText"><span>' + myObj.resposta + '</span></p>'+sugestoes;
             $("#chatbox").append(botHtml);

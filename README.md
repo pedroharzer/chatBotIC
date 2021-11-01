@@ -9,6 +9,9 @@ Site para testes:
 
 https://flask-chatb0t.herokuapp.com/
 
+https://myflaskproject.pythonanywhere.com
+
+
 ### Documentação
 
 * Diagrama de Arquitetura
@@ -46,8 +49,8 @@ pip install -r requirements.txt
 ```
 4 - Executar o projeto
 ```
-cd app
-export FLASK_APP=__init__.py
+cd backend
+export FLASK_APP=app.py
 flask run
 ```
 
@@ -59,6 +62,12 @@ Pedro Henrique Harzer Santana<br>
 
 **Frontend**<br>
 Milo Raziel Santos Rodrigues<br>
+
+**Atividades**<br>
+
+Felipe - Arquitetura do Backend, Frontend provisório<br>
+Pedro - Funções auxiliares, documentação do projeto<br>
+Milo - Frontend definitivo<br>
 
 ## TECNOLOGIAS UTILIZADAS
 
@@ -103,11 +112,13 @@ Documentação da API - Concluído ✔️ (Pedro e Felipe)
 <br>
 CRUD - Parcial (falta a interface) ➖ 
 <br>
-Implementação do novo framework de frontend - Não realizado ❌
+Implementação do novo framework de frontend - Não realizado (em andamento) ❌
 <br>
 Deploy em servidor Heroku - Concluído ✔️
 <br>
-Proteger as rotas em JWT - Não realizado ❌
+Proteger as rotas em JWT - Parcial (implementado para acesso ao cadastro de perguntas, mas pendente para o resto do CRUD) ➖ 
+<br>
+Sistema de cadastro e login - Concluído ✔️ (Felipe)
 
 
 

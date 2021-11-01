@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, session
 from flask_marshmallow import Marshmallow
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
@@ -11,6 +11,7 @@ from sqlalchemy_utils import database_exists, create_database
 app = Flask(__name__)
 CORS(app)
 app.config.from_object('config')
+app.secret_key = 'sessionkey'
 db = SQLAlchemy(app)
 if not database_exists(app.config['SQLALCHEMY_DATABASE_URI']):
     create_database(app.config['SQLALCHEMY_DATABASE_URI'])

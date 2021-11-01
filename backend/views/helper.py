@@ -1,7 +1,7 @@
 import datetime
 from functools import wraps
 from app import app
-from flask import request, jsonify
+from flask import request, jsonify, session, render_template
 from .users import user_by_username
 import jwt
 from werkzeug.security import check_password_hash
@@ -29,17 +29,26 @@ def token_required(f):
     @wraps(f)
     def decorated(*args, **kwargs):
         try:
-            headers = request.headers
-            bearer = headers.get('Authorization')
-            token = bearer.split()[1]
+            token = session['sessiontoken']
         except:
-            return jsonify({'message': 'Token nao encontrado.', 'data': []}), 401
+            try:
+                headers = request.headers
+                bearer = headers.get('Authorization')
+                token = bearer.split()[1]
+            except:
+                #return jsonify({'message': 'Token nao encontrado.', 'data': []}), 401
+                return render_template("403.html")
         try:
             data = jwt.decode(token, app.config['SECRET_KEY'])
             current_user = user_by_username(username=data['username'])
         except:
-            return jsonify({'message': 'Token invalido ou expirado.', 'data': []}), 401
+            #return jsonify({'message': 'Token invalido ou expirado.', 'data': []}), 401
+            return render_template("403.html")
         return f(current_user, *args, **kwargs)
     return decorated
 
 
+def savetoken():
+    token = request.json['token']
+    session['sessiontoken'] = token
+    return jsonify({'message': 'Token salvo com sucesso.', 'data': []}), 200
