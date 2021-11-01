@@ -1,13 +1,28 @@
 <div class="homeContainer">
     <div class="form-group row">
         <div class="overflow-auto scrollContainer">
-            <app-chat></app-chat>
+            <div class="container chatContainer">
+                <div class="row" *ngFor="let message of messageArray">
+                    <div class="col">
+                        <div class="text-wrap text-break message {{message.style}}">
+                            {{message.message}}
+                        </div>
+                        <div class="text-wrap text-break" *ngFor="let suggestion of message.suggestions">
+                            <div class="text-wrap text-break message suggestion" (click)="onSuggestion(suggestion)">
+                                    {{suggestion}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="form-group row">
         <textarea [(ngModel)]="inputText" class="form-control" rows="2"></textarea>
     </div>
-    <div class="form-group row d-flex flex-row-reverse">
-        <a href="#" class="btn btn-primary buttonEnviar" (click)="onEnviar()">Enviar</a>
+    <div class="form-group row">
+        <div class="d-flex flex-row-reverse" style="padding: 0px; margin: 0px;">
+            <a href="#" class="btn btn-primary buttonEnviar" (click)="onEnviar()">Enviar</a>
+        </div>
     </div>
 </div>

@@ -1,3 +1,8 @@
+@import "~bootswatch/dist/flatly/variables";
+@import "~bootstrap/scss/bootstrap";
+@import "~bootswatch/dist/flatly/bootswatch";
+
+// Containers
 .homeContainer {
     width: 50vw;
     margin-left: 3vw;
@@ -8,12 +13,36 @@
     flex-direction: column;
     gap: 2vh;
 }
-
 .scrollContainer {
     height: 50vh;
 }
+.chatContainer {
+    padding: 10px;
+}
 
+// Botões
 .buttonEnviar {
     width: 5vw;
     min-width: 80px;
+    margin: none;
+}
+
+// Formatação das mensagens
+.message {
+    padding: 8px;
+    margin: 2px;
+    border-radius: 10px;
+}
+.question {
+    @extend .float-end;
+    background-color: #ced1d6;
+}
+.answer {
+    @extend .float-start;
+    background-color: #bccbe3;
+}
+.suggestion {
+    @extend .float-start;
+    background-color: #ced1d6;
+    cursor: pointer;
 }
