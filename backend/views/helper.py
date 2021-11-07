@@ -10,6 +10,7 @@ from werkzeug.security import check_password_hash
 # Gerando token com base na Secret key do app e definindo expiração com 'exp'
 def auth():
     auth = request.authorization
+    print(auth)
     if not auth or not auth.username or not auth.password:
         return jsonify({'message': 'Login ou senha inválidos.', 'WWW-Authenticate': 'Basic auth="Login required"'}), 401
     user = user_by_username(auth.username)
@@ -36,7 +37,7 @@ def token_required(f):
                 bearer = headers.get('Authorization')
                 token = bearer.split()[1]
             except:
-                #return jsonify({'message': 'Token nao encontrado.', 'data': []}), 401
+                #return jsonify({'message': 'Token nao encontrado.', 'data': []}), 403
                 return render_template("403.html")
         try:
             data = jwt.decode(token, app.config['SECRET_KEY'])
@@ -52,3 +53,19 @@ def savetoken():
     token = request.json['token']
     session['sessiontoken'] = token
     return jsonify({'message': 'Token salvo com sucesso.', 'data': []}), 200
+
+def returnuser():
+    try:
+        token = session['sessiontoken']
+        data = jwt.decode(token, app.config['SECRET_KEY'])
+        current_user = data['username']
+        return jsonify({'username': current_user}), 200
+    except Exception as e:
+        return '',403
+
+def logout():
+    try:
+        session.clear()
+        return '', 200
+    except Exception as e:
+        return '',403

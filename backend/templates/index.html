@@ -12,14 +12,10 @@
     {% include 'navbar.html' %}
 
 
-    <h1>ICbot</h1>
-
-
-
     <div class="container register-form">
       <div class="form">
           <div class="note">
-              <p>Chat</p>
+              <p style="font-size: 5rem;">ICBot</p>
           </div>
 
 
@@ -58,7 +54,6 @@
           var jso = JSON.stringify({
             "entrada": rawText
           });
-          console.log(jso);
           let xhr = new XMLHttpRequest();
           let url = "/entrada";
           xhr.open("POST", url, true);

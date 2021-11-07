@@ -32,7 +32,6 @@
           xhr.onreadystatechange = function() {
             if (xhr.readyState === 4 && xhr.status === 200) {
                 myObj = JSON.parse(this.responseText);
-                console.log(myObj.message)
                 window.location.replace("/");
             }
         };
@@ -56,16 +55,15 @@ function bsAlert(message){
 
                 function sendRequest(){
 
-                    username = document.querySelector('#username').value;
+                    login = document.querySelector('#login').value;
                     password = document.querySelector('#password').value;
                 let url = '/login';
                 let xhr = new XMLHttpRequest();
                 xhr = new XMLHttpRequest();
                 xhr.open("POST", url, true);
-                xhr.setRequestHeader ("Authorization", "Basic " + btoa(username + ":" + password));
+                xhr.setRequestHeader ("Authorization", "Basic " + btoa(login + ":" + password));
                 xhr.send();
                 xhr.onreadystatechange = function() {
-                    console.log(xhr.status)
                 if (xhr.readyState === 4) {
                 myObj = JSON.parse(this.responseText);
                 bsAlert(myObj.message)
@@ -99,7 +97,7 @@ function bsAlert(message){
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="text" id="username" name = username size = 25 class="form-control" placeholder="Username *" value=""/>
+                                <input type="text" id="login" name = login size = 25 class="form-control" placeholder="login *" value=""/>
                             </div>
                         </div>
                         <div class="col-md-6">

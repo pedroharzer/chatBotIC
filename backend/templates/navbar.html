@@ -9,17 +9,44 @@
         <li class="nav-item active">
           <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/cadastropergunta">Cadastrar interações</a>
-        </li>
+        <div id="interacoes" name="interacoes"></div>
+        
       </ul>
       <form class="form-inline my-2 my-lg-0">
-          <a class="nav-link disabled" href="#">Visitante</a>
-        <a href="/loginusuario">
-          <input type="button" class="btn btn-outline-success my-2 my-sm-0" value="Login administrativo" />
-       </a>
+        <div id="username" name="username"></div>
+        <div id="logstatus" name="logstatus"></div>
+          
+
 
 
       </form>
     </div>
   </nav>
+
+  <script>
+
+
+let url = '/userlogado';
+let xhr = new XMLHttpRequest();
+xhr = new XMLHttpRequest();
+xhr.open("GET", url, true);
+xhr.send();
+xhr.onreadystatechange = function() {
+if (xhr.readyState === 4 && xhr.status === 200) {
+myObj = JSON.parse(this.responseText);
+
+
+document.getElementById('interacoes').innerHTML = "<li class=\"nav-item\"><a class=\"nav-link\" href=\"/cadastropergunta\">Cadastrar interações</a></li>";
+document.getElementById('username').innerHTML = "<a class=\"nav-link disabled\" href=\"#\">"+myObj.username+"</a>";
+document.getElementById('logstatus').innerHTML = "<a href=\"/logout\"><input type=\"button\" class=\"btn btn-outline-danger my-2 my-sm-0\" value=\"Logout\" /></a>"
+
+
+}else{
+
+  document.getElementById('username').innerHTML = "<a class=\"nav-link disabled\" href=\"#\">Visitante</a>";
+  document.getElementById('logstatus').innerHTML = "<a href=\"/loginusuario\"><input type=\"button\" class=\"btn btn-outline-success my-2 my-sm-0\" value=\"Login administrativo\" /></a>"
+
+}
+};
+
+    </script>

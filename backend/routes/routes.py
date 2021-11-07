@@ -83,6 +83,10 @@ def cadastro_pergunta(current_user):
 def editarpergunta(current_user,id):
     return render_template("editarpergunta.html")
 
+@app.route('/userlogado', methods=['GET'])
+def userlogado():
+    return helper.returnuser()
+
 @app.route('/cadastrousuario')
 def cadastro_usuario():
     return render_template("cadastrousuario.html")
@@ -90,6 +94,11 @@ def cadastro_usuario():
 @app.route('/loginusuario')
 def login_user():
     return render_template("loginusuario.html")
+
+@app.route('/logout')
+def logout():
+    helper.logout()
+    return render_template("index.html")
 
 @app.route('/savetoken', methods=['POST'])
 def savetoken():
