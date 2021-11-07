@@ -6,7 +6,7 @@ from apis.rivescript_to_regex import convert
 
 #Cadastrar pergunta
 def post_pergunta():
-    pergunta = request.json['pergunta']
+    pergunta = request.json['pergunta'].lower()
     pergunta = convert(pergunta)
     objpergunta = Perguntas(pergunta)
     try:

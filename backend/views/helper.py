@@ -11,7 +11,7 @@ from werkzeug.security import check_password_hash
 def auth():
     auth = request.authorization
     if not auth or not auth.username or not auth.password:
-        return jsonify({'message': 'Nao pode ser verificado.', 'WWW-Authenticate': 'Basic auth="Login required"'}), 401
+        return jsonify({'message': 'Login ou senha inválidos.', 'WWW-Authenticate': 'Basic auth="Login required"'}), 401
     user = user_by_username(auth.username)
     if not user:
         return jsonify({'message': 'Usuario nao encontrado.', 'data': []}), 401
@@ -22,7 +22,7 @@ def auth():
         return jsonify({'message': 'Logado com sucesso.', 'token': token.decode('UTF-8'),
                         'exp': datetime.datetime.now() + datetime.timedelta(hours=12)})
 
-    return jsonify({'message': 'Nao pode ser verificado.', 'WWW-Authenticate': 'Basic auth="Login required"'}), 401 
+    return jsonify({'message': 'Login ou senha inválidos.', 'WWW-Authenticate': 'Basic auth="Login required"'}), 401 
 
 
 def token_required(f):

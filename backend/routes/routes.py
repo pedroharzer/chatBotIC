@@ -78,6 +78,11 @@ def update_pergunta():
 def cadastro_pergunta(current_user):
     return render_template("cadastropergunta.html")
 
+@app.route('/editarpergunta/<int:id>')
+@helper.token_required
+def editarpergunta(current_user,id):
+    return render_template("editarpergunta.html")
+
 @app.route('/cadastrousuario')
 def cadastro_usuario():
     return render_template("cadastrousuario.html")

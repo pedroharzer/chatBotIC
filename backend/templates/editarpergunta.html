@@ -6,16 +6,6 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/static/sign.css">
         <script>
-
-
-function bsAlert(message){
-
-inhtml =    "<div class=\"alert alert-info\" role=\"alert\">"+message+"</div>"
-
-
-document.getElementById('alert').innerHTML = inhtml;
-
-}
             function sendRequest(jso,url,pergunta_id){
 
                 console.log(jso);
@@ -43,7 +33,7 @@ document.getElementById('alert').innerHTML = inhtml;
           sendRequest(jso,url,pergunta_id)
         }else{
 
-            bsAlert("Cadastrado com sucesso!");
+            alert("Cadastrado com sucesso!");
         }
           
             }
@@ -71,9 +61,6 @@ document.getElementById('alert').innerHTML = inhtml;
             }
 
 
-
-
-
         </script>
     </head>
     <body>
@@ -87,7 +74,7 @@ document.getElementById('alert').innerHTML = inhtml;
 
                 
                 <div class="form-content">
-                    <div id="alert" name="alert"></div>
+
                     
                     <div class="row">
                         <div class="col-md-6">

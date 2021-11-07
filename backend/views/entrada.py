@@ -6,7 +6,7 @@ from models.respostas import Respostas, resposta_schema, respostas_schema
 from apis.match_entrada import stringExists
 #Cadastrar pergunta
 def post_entrada():
-    entrada = request.json['entrada']
+    entrada = request.json['entrada'].lower()
     entrada = ' ' + entrada if not entrada.startswith(' ') else entrada
     perguntas = Perguntas.query.all()
     if perguntas:

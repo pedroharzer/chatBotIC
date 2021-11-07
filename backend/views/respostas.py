@@ -4,7 +4,7 @@ from models.respostas import Respostas, resposta_schema, respostas_schema
  
 #cadastrar respostas
 def post_resposta():
-    resposta = request.json['resposta']
+    resposta = request.json['resposta'].lower()
     sugestoes = request.json['sugestoes']
     id_pergunta = request.json['pergunta_id']
 

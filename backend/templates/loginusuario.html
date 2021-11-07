@@ -43,6 +43,16 @@
                 }
 
 
+function bsAlert(message){
+
+ inhtml =    "<div class=\"alert alert-info\" role=\"alert\">"+message+"</div>"
+
+
+ document.getElementById('alert').innerHTML = inhtml;
+
+}
+
+
 
                 function sendRequest(){
 
@@ -56,9 +66,10 @@
                 xhr.send();
                 xhr.onreadystatechange = function() {
                     console.log(xhr.status)
-                if (xhr.readyState === 4 && xhr.status === 200) {
+                if (xhr.readyState === 4) {
                 myObj = JSON.parse(this.responseText);
-               alert(myObj.message)
+                bsAlert(myObj.message)
+               if(xhr.status === 200)
                saveToken(myObj.token);
                 }
                 };
@@ -83,7 +94,7 @@
 
                 
                 <div class="form-content">
-
+                    <div id="alert" name="alert"></div>
                     
                     <div class="row">
                         <div class="col-md-6">
