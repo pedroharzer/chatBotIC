@@ -4,9 +4,10 @@ from flask import request, jsonify
 from models.perguntas import Perguntas, pergunta_schema, perguntas_schema
 from models.respostas import Respostas, resposta_schema, respostas_schema
 from apis.match_entrada import stringExists
+import unidecode
 #Cadastrar pergunta
 def post_entrada():
-    entrada = request.json['entrada'].lower()
+    entrada = unidecode.unidecode(request.json['entrada'].lower())
     entrada = ' ' + entrada if not entrada.startswith(' ') else entrada
     perguntas = Perguntas.query.all()
     if perguntas:

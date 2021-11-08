@@ -4,7 +4,7 @@ from models.respostas import Respostas, resposta_schema, respostas_schema
  
 #cadastrar respostas
 def post_resposta():
-    resposta = request.json['resposta'].lower()
+    resposta = request.json['resposta']
     sugestoes = request.json['sugestoes']
     id_pergunta = request.json['pergunta_id']
 
@@ -43,13 +43,16 @@ def update_resposta():
         return jsonify({'msg' : 'Error', 'data' : result}),500
  
 #pegar UMA resposta
-def get_resposta():
-    resposta_id = request.json['resposta_id']
-    resposta = Respostas.query.get(resposta_id)
- 
+def get_resposta(i):
+    resposta = db.session.execute('SELECT id FROM respostas WHERE pergunta_id='+str(i)+" ORDER BY id ASC LIMIT 1;")
+    id_p=""
+    for row in resposta:
+        id_p=row.items()
+    print("-----------------------------------------------------------------")    
+    resposta= Respostas.query.get(int(id_p[0][1]))
     if resposta:
         result = resposta_schema.dump(resposta)
-        return jsonify({'message':'Resposta encontrada','data':result}), 201
+        return jsonify(result), 201
     return jsonify({'message' : 'resposta não encontrada', 'data' : {}}),500
  
 #pegar TODAS respostas
@@ -62,15 +65,11 @@ def get_all_respostas():
  
 #deletar resposta
 def del_resposta():
-    resposta_id = request.json['resposta_id']
-    resposta = Respostas.query.get(resposta_id)
-    if not resposta:
-        return jsonify({'message' : 'Resposta inexistente!', 'data' : {}}), 404
+    id = request.json['idp']
     try:
-        db.session.delete(resposta)
+        db.session.execute("DELETE FROM respostas WHERE pergunta_id="+str(id)+";")
         db.session.commit()
-        result = resposta_schema.dump(resposta)
-        return jsonify({'message' : 'Resposta deletada!', 'data' : result}), 201
-    except Exception as err:
-        print(err)
-        return jsonify({'message' : 'Algum erro ocorreu!', 'data' : {}}), 500
+        return jsonify({'message' : 'Resposta deletada!'}), 201
+    except Exception as e:
+        print(e)
+        return jsonify({'message' : 'Algum erro ocorreu!'}), 500

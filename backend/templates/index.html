@@ -24,7 +24,10 @@
               
               <div id="botchatbox">
                 <p class="botText"><span>Olá! Quais são as suas dúvidas?</span></p>
-                <input id="questionButton" class="btn btn-outline-info my-2 my-sm-0" type="submit" value="Conte-me sobre o curso de cc">
+                <input id="questionButton" class="btn btn-outline-info my-2 my-sm-0" type="submit" value="Sobre o IC"><br>
+                <input id="questionButton" class="btn btn-outline-info my-2 my-sm-0" type="submit" value="Docentes"><br>
+                <input id="questionButton" class="btn btn-outline-info my-2 my-sm-0" type="submit" value="Discentes"><br>
+                <input id="questionButton" class="btn btn-outline-info my-2 my-sm-0" type="submit" value="Disciplinas de graduação do DCC">
               </div>
               <div id="userInput">
                 <input type="text" id="textInput" name = "msg" size = 25 class="form-control" placeholder="Mensagem" value=""/>
@@ -64,7 +67,7 @@
               myObj = JSON.parse(this.responseText);
               var sugestoes = "";
               for (var prop in myObj.sugestoes) {
-                if(prop!=0)
+                if(myObj.sugestoes[prop]!="")
             sugestoes = "<input id=\"questionButton\" class=\"btn btn-outline-info my-2 my-sm-0\" type=\"submit\" value=\""+myObj.sugestoes[prop]+"\">"+"<br>"+sugestoes;
           }
             var botHtml = '<p class="botText"><span>' + myObj.resposta + '</span></p>'+sugestoes;

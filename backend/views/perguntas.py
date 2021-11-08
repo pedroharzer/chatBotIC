@@ -20,17 +20,18 @@ def post_pergunta():
 
 #Atualizar/editar pergunta
 def update_pergunta():
-    pergunta_id = request.json['pergunta_id']
+    id = request.json['id']
     pergunta = request.json['pergunta']
+    pergunta = convert(pergunta)
     
-    objpergunta = Perguntas.query.get(pergunta_id)
+    objpergunta = Perguntas.query.get(id)
 
     if not objpergunta:
         return jsonify({'message':"Pergunta nao existe.",'data':{}}), 404
 
 
     try:
-        objpergunta.pergunta_id = pergunta_id
+        objpergunta.pergunta_id = id
         objpergunta.pergunta = pergunta
         db.session.commit()
         result = pergunta_schema.dump(objpergunta)
@@ -61,8 +62,8 @@ def get_perguntas():
 
 #Deletar a pergunta
 def delete_pergunta():
-    pergunta_id = request.json['pergunta_id']
-    pergunta = Perguntas.query.get(pergunta_id)
+    id = request.json['idp']
+    pergunta = Perguntas.query.get(id)
     if not pergunta:
         return jsonify({'message':"Pergunta nao existe.",'data':{}}),404
     if pergunta:

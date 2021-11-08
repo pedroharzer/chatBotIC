@@ -1,6 +1,6 @@
 from app import app
 from flask import jsonify, render_template
-from views import users, helper, perguntas, entrada, respostas
+from views import users, helper, perguntas, entrada, respostas, table
 
 #Cadastro do usuário
 @app.route('/user', methods=['POST'])
@@ -44,20 +44,20 @@ def update_resposta():
     return respostas.update_resposta()
  
 #Coletar UMA resposta
-@app.route('/resposta/get', methods=['GET'])
-def get_resposta():
-    return respostas.get_resposta()
+@app.route('/resposta/<int:id>', methods=['GET'])
+def get_resposta(id):
+    return respostas.get_resposta(id)
  
 #Coletar TODAS as respostas
 @app.route('/respostas', methods=['GET'])
 def get_all_resposta():
     return respostas.get_all_respostas()
  
-@app.route('/resposta/delete', methods=['DELETE'])
+@app.route('/resposta', methods=['DELETE'])
 def delete_resposta():
     return respostas.del_resposta()
 
-@app.route('/pergunta/delete', methods=['DELETE'])
+@app.route('/pergunta', methods=['DELETE'])
 def delete_pergunta():
     return perguntas.delete_pergunta()
 
@@ -73,15 +73,14 @@ def get_pergunta():
 def update_pergunta():
     return perguntas.update_pergunta()
 
+@app.route('/tabela', methods=['GET'])
+def return_table():
+    return table.return_table()
+
 @app.route('/cadastropergunta')
 @helper.token_required
 def cadastro_pergunta(current_user):
     return render_template("cadastropergunta.html")
-
-@app.route('/editarpergunta/<int:id>')
-@helper.token_required
-def editarpergunta(current_user,id):
-    return render_template("editarpergunta.html")
 
 @app.route('/userlogado', methods=['GET'])
 def userlogado():
