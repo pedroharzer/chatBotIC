@@ -13,12 +13,15 @@ def post_entrada():
     if perguntas:
         result = perguntas_schema.dump(perguntas)
         for x in result:
-            if(stringExists(x["pergunta"],entrada)):
-                respostas = Respostas.query.all()
-                if respostas:
-                    result2 = respostas_schema.dump(respostas)
-                    for y in result2:
-                        if(y["pergunta_id"]==x["id"]):
-                            return jsonify({'resposta':y["resposta"],'sugestoes':y['sugestoes']})
+            try:
+                if(stringExists(x["pergunta"],entrada)):
+                    respostas = Respostas.query.all()
+                    if respostas:
+                        result2 = respostas_schema.dump(respostas)
+                        for y in result2:
+                            if(y["pergunta_id"]==x["id"]):
+                                return jsonify({'resposta':y["resposta"],'sugestoes':y['sugestoes']})
+            except:
+                pass
     return jsonify({'resposta':'Desculpe, a sua pergunta não foi entendida!'})
                         
