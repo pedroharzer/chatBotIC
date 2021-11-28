@@ -46,20 +46,22 @@ h3 {
 .userText span {
     background-color: #009688;
     padding: 10px;
-    border-radius: 2px;
+    border-radius: 5px;
 }
 
 .botText {
-    color: white;
+    color: black;
     font-size: 17px;
     text-align: left;
     line-height: 30px;
 }
 
 .botText span {
-    background-color: #EF5350;
+    background-color: #F4F4F4;
     padding: 10px;
-    border-radius: 2px;
+    border-radius: 5px;
+    display: -webkit-inline-box;
+    border: 1px solid #ccc !important
 }
 
 #tidbit {
@@ -67,4 +69,10 @@ h3 {
     bottom:0;
     right:0;
     width: 300px;
+}
+
+
+.form-control{
+    width: 79% !important;
+    display: inline !important;
 }
